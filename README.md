@@ -73,7 +73,7 @@ Product.Api
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/SEU_USUARIO/product-api-dotnet.git
+git clone git clone https://github.com/Leandrosp9/product-api-dotnet.git
 ```
 
 2. Configure a string de conexão no arquivo `appsettings.json`:
