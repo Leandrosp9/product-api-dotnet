@@ -4,10 +4,11 @@ using Product.Api.Services;
 using Product.Api.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+var connString = builder.Configuration["ConnectionStrings:DefaultConnection"];
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options => 
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        options.UseSqlServer(connString));
 
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
 
