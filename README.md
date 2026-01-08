@@ -82,12 +82,14 @@ git clone git clone https://github.com/Leandrosp9/product-api-dotnet.git
   "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=ProductDb;Trusted_Connection=True;TrustServerCertificate=True;"
 }
 ```
+> Ajuste a connection string conforme seu ambiente SQL Server.
 
 3. Crie o banco de dados e aplique as migrations:
 ```bash
 Add-Migration InitialCreate
 Update-Database
 ```
+
 
 4. Execute a aplicação:
 ```bash
