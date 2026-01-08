@@ -73,7 +73,7 @@ Product.Api
 
 1. Clone o repositório:
 ```bash
-git clone git clone https://github.com/Leandrosp9/product-api-dotnet.git
+git clone https://github.com/Leandrosp9/product-api-dotnet.git
 ```
 
 2. Configure a string de conexão no arquivo `appsettings.json`:
@@ -84,12 +84,18 @@ git clone git clone https://github.com/Leandrosp9/product-api-dotnet.git
 ```
 > Ajuste a connection string conforme seu ambiente SQL Server.
 
-3. Crie o banco de dados e aplique as migrations:
+3. Criar e aplicar o banco de dados
+
+Como as migrations já estão incluídas no repositório, basta aplicar:
+
+#### Usando .NET CLI
 ```bash
-Add-Migration InitialCreate
+dotnet ef database update
+```
+Ou usando Package Manager Console (Visual Studio)
+```bash
 Update-Database
 ```
-
 
 4. Execute a aplicação:
 ```bash
