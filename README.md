@@ -14,7 +14,8 @@ Este projeto foi criado com foco em **boas práticas**, **arquitetura limpa** e 
 - AutoMapper
 - Swagger (OpenAPI)
 - DTOs
-- Injeção de Dependência
+- Camada Service
+- User Secrets
 - Postman / Swagger para testes
 
 ---
@@ -69,41 +70,21 @@ Product.Api
 
 ---
 
-### Passo a Passo
+## 🔐 Configuração de Secrets (User Secrets)
 
-1. Clone o repositório:
+Este projeto utiliza **.NET User Secrets** para armazenar informações sensíveis, como a **string de conexão com o banco de dados**, evitando que esses dados fiquem versionados no repositório.
+
+### ▶️ Passo a passo
+
 ```bash
 git clone https://github.com/Leandrosp9/product-api-dotnet.git
-```
-
-2. Configure a string de conexão no arquivo `appsettings.json`:
-```json
-"ConnectionStrings": {
-  "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=ProductDb;Trusted_Connection=True;TrustServerCertificate=True;"
-}
-```
-> Ajuste a connection string conforme seu ambiente SQL Server.
-
-3. Criar e aplicar o banco de dados
-
-Como as migrations já estão incluídas no repositório, basta aplicar:
-
-#### Usando .NET CLI
-```bash
+cd product-api-dotnet
+dotnet user-secrets init
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Server=localhost\\SQLEXPRESS;Database=ProductDb;Trusted_Connection=True;TrustServerCertificate=True;"
+dotnet ef migrations add InitialCreate
 dotnet ef database update
-```
-Ou usando Package Manager Console (Visual Studio)
-```bash
-Update-Database
-```
-
-4. Execute a aplicação:
-```bash
 dotnet run
 ```
-
----
-
 ## 🧪 Testes da API
 
 A API pode ser testada utilizando:
@@ -128,3 +109,4 @@ A API pode ser testada utilizando:
 
 **Leandro Souza**  
 Desenvolvedor Backend .NET
+-GitHub: https://github.com/Leandrosp9
